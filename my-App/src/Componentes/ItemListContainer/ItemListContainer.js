@@ -7,8 +7,7 @@ import {getFecht, getFechtByCategory} from '../../asyncmock'
 
 
     const ItemListContainer = ({greeting}) => {
-       
-       
+    
         const [productos, setProdcutos] = useState ([])
         
         const { categoryId } = useParams()

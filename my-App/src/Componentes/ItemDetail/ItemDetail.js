@@ -1,9 +1,13 @@
+import { useState } from "react"
+import { Link } from "react-router-dom"
 import ItemCount from "../ItemCount/ItemCount"
 
 
 const ItemDetail = ({img, name, stock, precio, descripcion, category}) => {
+
+    const [quantity, setQuantity] = useState(0)
     const onAdd = (cantidad) => {
-        console.log(`SE AÑADIO ${cantidad} PRODUCTOS AL CARRITO`)
+        setQuantity(cantidad)
     }
     return(
         <>
@@ -21,7 +25,7 @@ const ItemDetail = ({img, name, stock, precio, descripcion, category}) => {
                     <p>Stock: {stock}</p>
                 </div>
                 <footer>
-                <ItemCount stock = {10} initial = {1} onAdd = {onAdd} />
+                {quantity > 0 ? <Link to= '/cart'>Finalizar Compra</Link> : <ItemCount stock = {10} initial = {1} onAdd = {onAdd} /> }
                 </footer>
             </div>  
             
