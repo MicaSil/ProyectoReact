@@ -1,14 +1,37 @@
-.card{
-    width: 20%;
-    border-radius: 10px;
-    background-color: gray;
-    display: inline-flex; 
-    margin: 10px;
-    box-shadow: rgba(0, 0, 0, 0.295) 0px 0px 10px ;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.card-logo{
-    padding: 10px;
+
+
+.container {
+    width: 100%;
+    max-width: 1600px;
 }
-.card-content{
-    color: white;
+
+.card {
+    width: 50%;
+    margin: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    transition: all 400ms ease;
+}
+
+.card:hover{
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
+}
+
+.card img{
+    width: 30%;
+    height: 210px;
+}
+
+.card .contenido {
+    padding: 15px;
+    text-align: center;
 }
