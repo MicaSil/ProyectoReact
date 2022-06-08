@@ -11,7 +11,7 @@ import {getFecht, getFechtByCategory} from '../../asyncmock'
         const [productos, setProdcutos] = useState ([])
         
         const { categoryId } = useParams()
-        console.log(categoryId)
+        
         useEffect(() => {
             if(!categoryId){
                 getFecht().then(response => {
