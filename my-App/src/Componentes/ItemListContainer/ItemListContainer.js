@@ -32,7 +32,7 @@ import {getFecht, getFechtByCategory} from '../../asyncmock'
                 <h1 className="greetin">{greeting}</h1>
                 {productos.length > 0 
                     ?<ItemList productos={productos}/>
-                    :<h1>No hay stock</h1>
+                    :<h1>Cargando...</h1>
                 }
                 
             </div>

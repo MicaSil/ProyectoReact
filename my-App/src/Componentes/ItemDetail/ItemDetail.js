@@ -2,6 +2,7 @@ import { useContext, useState} from "react"
 import { Link } from "react-router-dom"
 import ItemCount from "../ItemCount/ItemCount"
 import CartContext from "../../context/CartContext"
+import { useNotificacion } from "../../Notificacion/Notificacion"
 
 
 
@@ -13,11 +14,13 @@ const ItemDetail = ({ id, img, name, stock, precio, descripcion, category}) => {
     const {agregoItem, productosCantidad} = useContext(CartContext)
 
     const initialValue = productosCantidad(id)
-        console.log(initialValue)
+
+    const {setNotificacion} = useNotificacion()
+        
 
     const onAdd = (cantidad) => {
         setCantidad(cantidad)
-
+        setNotificacion('sucesos', 'Se añadió correctamente al carrito')
         agregoItem({id, name, precio, cantidad})
         
     }
