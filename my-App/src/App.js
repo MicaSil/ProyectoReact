@@ -7,6 +7,8 @@ import ItemDetailContainer from './Componentes/ItemDetailContainer/ItemDetailcon
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { CartContextProvider } from './context/CartContext';
 import { NotificacionProvider } from './Notificacion/Notificacion';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Slider from './Componentes/Slider/Slider'
 
 const App = () => {
 
@@ -16,8 +18,9 @@ const App = () => {
         <NotificacionProvider>
           <BrowserRouter>
             <NavBar />
+            <Slider />
             <Routes>
-              <Route path='/' element={<ItemListContainer greeting="Bienvenidos a nuestra tienda online"/>}/>
+              <Route path='/' element={<ItemListContainer greeting="Bienvenidos a nuestra tienda online"/>} />
               <Route path='/category/:categoryId' element={<ItemListContainer greeting="Productos"/>}/>
               <Route path='/detail/:productId' element={<ItemDetailContainer />} />
               <Route path='/cart' element={<Cart />}></Route>

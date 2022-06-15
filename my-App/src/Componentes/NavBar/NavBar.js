@@ -6,18 +6,16 @@ import { Link } from 'react-router-dom'
 const NavBar = () => {
     return ( 
         <div className="contenedor">
-            <nav className="navBar">
-                <Link to='/'>
-                <h1 className="logo">INFINITE</h1>
-                </Link>
-                <ul>
-                <Link to="/category/Damas" className="nav"><li>Damas</li></Link>
-                <Link to="/category/Hombres" className="nav"><li>Hombres</li></Link>
-                <Link to="/category/Niños" className="nav"><li>Niños</li></Link>
+            <nav>
+                <h1 className="logo">REGALA<span>ME</span></h1>                <ul>
+                <Link to="/category/Damas"><li className="">Damas</li></Link>
+                <Link to="/category/Hombres"><li className="">Hombres</li></Link>
+                <Link to="/category/Niños"><li className="">Niños</li></Link>
+                <Link to="/contacto"><li className="">Contactos</li></Link>
                 </ul>
                 <CartWidget className="carrito"/>
+                <button className="button">Log in</button>
             </nav>
-            
         </div>
     )
 }

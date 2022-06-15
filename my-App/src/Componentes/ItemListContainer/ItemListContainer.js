@@ -1,27 +1,40 @@
-import React, { useEffect, useState } from "react"
+import React, {useEffect, useState} from "react"
 import ItemList from '../ItemList/ItemList'
-import { useParams } from "react-router-dom"
+import {useParams} from "react-router-dom"
 import  "./ItemListContainer.css"
-import {getFecht, getFechtByCategory} from '../../asyncmock'
 
+import { db } from "../../services/firebase"
+import {getDocs, collection, query, where} from "@firebase/firestore"
 
 
     const ItemListContainer = ({greeting}) => {
     
-        const [productos, setProdcutos] = useState ([])
+        const [productos, setProdcutos ] = useState ([])
         
         const { categoryId } = useParams()
         
         useEffect(() => {
-            if(!categoryId){
-                getFecht().then(response => {
-                    setProdcutos(response)
-                }) 
-            } else {
-                getFechtByCategory(categoryId).then(response => {
-                    setProdcutos(response)
+            const collectionRef = categoryId
+            ? query(collection(db, 'productos'), where('category', '==', categoryId))
+            : collection(db, 'productos')
+
+            getDocs(collectionRef).then(response => {
+                const productos = response.docs.map(doc => {
+                    return{id: doc.id, ...doc.data()}
+                    
                 })
-            }
+                setProdcutos(productos)
+            })
+
+            // if(!categoryId){
+            //     getFecht().then(response => {
+            //         setProdcutos(response)
+            //     }) 
+            // } else {
+            //     getFechtByCategory(categoryId).then(response => {
+            //         setProdcutos(response)
+            //     })
+            // }
             
         }, [categoryId])
 

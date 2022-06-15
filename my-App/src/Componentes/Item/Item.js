@@ -4,10 +4,12 @@ const Item = ({id, img, name, precio}) => {
     return (
         <div className="container">
                 <div className="card">
-                    <img src={img} alt="img"/>
-                    <h1>{name}</h1> 
-                    <p>Precio: ${precio}</p>
-                    <Link to={`/detail/${id}`}> <button className='detalle'>Detalle </button> </Link>
+                    <img src={img} alt="img" className="card_img"/>
+                    <div className="card_body">
+                        <h3 className="card_title">{name}</h3> 
+                        <p className="card_precios">Precio: ${precio}</p>
+                        <Link to={`/detail/${id}`}> <button className="card_btn">Detalle </button> </Link>
+                    </div>
                 </div>
         </div>
     )

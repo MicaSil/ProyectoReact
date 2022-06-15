@@ -7,7 +7,7 @@ const CartWidget = () => {
 
     const cantidad = totalCantidad()
     return (
-        <button to='/cart' className="carrito">
+        <button to='/cart' className="button">
             <img src='../imagenes/carrito.svg' alt='cart-widget'/> 
             {cantidad}
         </button>
